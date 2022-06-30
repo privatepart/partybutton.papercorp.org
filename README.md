@@ -77,17 +77,18 @@ Naturally there are two parts to it: a backend and a frontend.
 
 ![login_with_nft.gif](login_with_nft.gif)
 
-
 ---
 
-# React component
-
-## Quickstart
+# Quickstart
 
 To get started running some examples instantly, check out the demos below:
 
 1. **Next.js demo:** https://github.com/privatepart/nextparty
 2. **Vanilla React demo:** https://github.com/privatepart/reactparty
+
+---
+
+# React component
 
 ## Install
 
