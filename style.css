@@ -143,8 +143,7 @@ section.cover .cover-main>p:last-child a:last-child:hover {
   letter-spacing: -1px;
 }
 a.btn {
-  background: rgba(0,0,0,0.8);
-  color: white;
+  font-size: 18px;
   padding: 10px;
   border-radius: 2px;
   color: white;
