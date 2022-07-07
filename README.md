@@ -121,7 +121,9 @@ import Partybutton from 'partybutton-react';
       padding: "10px"
     }
   }},
+  payload: { ... },
   host: "http://localhost:3000",
+  walletconnect: infuraId,
 />
 ```
 
@@ -134,6 +136,8 @@ import Partybutton from 'partybutton-react';
   - `message`: the logout button message
   - `style`: a JSON object describing the stylesheet for the logout button
 - `host`: (optional) the privateparty server host ONLY in case it's cross origin.
+- `payload`: (optional) pass custom payload to the privateparty server for auth
+- `walletconnect`: (optional) support mobile wallets with [walletconnect](https://docs.walletconnect.com/quick-start/dapps/web3-provider). Go to [Infura](https://infura.io), create a project, and get its ID, and paste it here. 
 
 ## Examples
 
@@ -257,6 +261,31 @@ This `payload` then gets passed to the Privateparty server as a custom payload o
 
 > Learn more about how this works here: https://privateparty.papercorp.org/docs/#/?id=_3-authenticate-with-custom-payload
 
+
+### 4. Mobile wallet support
+
+Let's support mobile wallets by integrating Walletconnect.
+
+First go to [Infura](https://infura.io) and create a project. Then copy and paste the project ID to the `walletconnect` attribute when initializing:
+
+
+```jsx
+import { useState } from 'react'
+import Partybutton from 'partybutton-react';
+export default function Simple() {
+  const [session, setSession] = useState(null)
+  return (
+    <>
+      <Partybutton
+        role="user"
+        onSession={(s) => { setSession(s) }}
+        walletconnect=YOUR_INFURA_ID
+      />
+      <pre>{JSON.stringify(session)}</pre>
+    </>
+  );
+}
+```
 
 ---
 
