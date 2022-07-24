@@ -138,6 +138,7 @@ import Partybutton from 'partybutton-react';
 - `host`: (optional) the privateparty server host ONLY in case it's cross origin.
 - `payload`: (optional) pass custom payload to the privateparty server for auth
 - `walletconnect`: (optional) support mobile wallets with [walletconnect](https://docs.walletconnect.com/quick-start/dapps/web3-provider). Go to [Infura](https://infura.io), create a project, and get its ID, and paste it here. 
+- `options`: (optional) an optional options object for connecting. can be used to let the user select an account from the wallet (instead of using the default address) Learn more here: https://privateparty.papercorp.org/docs/#/?id=parameters-6
 
 ## Examples
 
@@ -280,6 +281,28 @@ export default function Simple() {
         role="user"
         onSession={(s) => { setSession(s) }}
         walletconnect=YOUR_INFURA_ID
+      />
+      <pre>{JSON.stringify(session)}</pre>
+    </>
+  );
+}
+```
+
+### 5. Fresh login
+
+Sometimes you may want to let the user select an account from the wallet instead of automatically using the default connected wallet. In this case, you can pass the `options` prop:
+
+```jsx
+import { useState } from 'react'
+import Partybutton from 'partybutton-react';
+export default function Simple() {
+  const [session, setSession] = useState(null)
+  return (
+    <>
+      <Partybutton
+        role="user"
+        onSession={(s) => { setSession(s) }}
+        options={{ fresh: true }}               // { fresh: true } will trigger a fresh login and let the user select an account
       />
       <pre>{JSON.stringify(session)}</pre>
     </>
